@@ -1,6 +1,8 @@
 """
 The following program was made as a test build of a webscraper made with the selenium webdriver
 
+This program is PROOF OF CONCEPT. Do not run anywhere where piracy is illegal. I do not condone piracy
+
 You need a .CRX copy of the adblockplus chrome extension
 https://chromewebstore.google.com/detail/crx-extractordownloader/ajkhmmldknmfjnmeedkbkkojgobmljda
 use this tool to download the extension, then name it adblockplus.crx
