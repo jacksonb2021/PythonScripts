@@ -5,6 +5,10 @@ __pycache__/
 
 .idea/
 data.txt
+*.crx
+*.txt
+
+
 # C extensions
 *.so
 
