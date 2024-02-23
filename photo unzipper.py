@@ -21,14 +21,28 @@ def main():
                 zip_ref.extractall(toPath)
             os.remove(file)
     ewpath =toPath+"\\iCloud Photos\\"
-    for i in os.listdir(ewpath):
-        print(i)
-        if i.find(".jpg") !=-1 or i.find(".JPG")!=-1:
-            os.rename(ewpath+i, toPath+"\\"+i)
-    shutil.rmtree(ewpath)
+    try:
+        for i in os.listdir(ewpath):
+            print(i)
+            if i.find(".jpg") !=-1 or i.find(".JPG")!=-1:
+                os.rename(ewpath+i, toPath+"\\"+i)
+        shutil.rmtree(ewpath)
+    except:
+        pass
+
     if send_to_slideshow:
         for i in os.listdir(toPath):
-            os.rename(toPath+"\\"+i,slideshow_path+i)
+            try:
+                os.rename(toPath+"\\"+i,slideshow_path+i)
+            except FileExistsError:
+                iterator = 0;
+                while True:
+                    try:
+                        os.rename(toPath+"\\"+i,slideshow_path+"("+str(iterator)+")"+i)
+                        break
+                    except:
+                        iterator+=1
+                        pass
         shutil.rmtree(toPath)
 
 
