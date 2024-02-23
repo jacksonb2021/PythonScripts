@@ -19,8 +19,9 @@ from pynput.keyboard import Key, Controller
 keyboard = Controller()
 
 
+games = os.path.dirname(os.path.realpath(__file__))+'/games.txt'
 try:
-    file = open("games.txt", 'r')
+    file = open(games, 'r')
     print("games.txt found... reading games\n")
 except FileNotFoundError:
     print("games.txt was not found. creating...\n")
@@ -29,10 +30,10 @@ except FileNotFoundError:
     while gamename != "":
         gamename = input(f"added {gamename}. Enter another game, or enter to end input\n")
         the_string += gamename+"\n"
-    file = open("games.txt",'w')
+    file = open(games,'w')
     file.write(the_string)
     file.close()
-    file = open("games.txt",'r')
+    file = open(games,'r')
 
 lines = file.readlines()
 options = webdriver.ChromeOptions()
