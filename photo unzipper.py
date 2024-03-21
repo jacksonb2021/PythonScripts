@@ -7,6 +7,7 @@ def main():
     send_to_slideshow = False
     toPath = downloads+ "\\tempextract"
     slideshow_path = "C:\\Users\\jaxru\\Downloads\\slideshow\\"
+    pre_existing = []
 
     output_folder = input("output folder (if empty, send to slideshow)")
     if output_folder=="":
@@ -17,6 +18,9 @@ def main():
     for i in os.listdir(downloads):
         if i.find("iCloud Photos")!=-1:
             file = downloads+"\\"+i
+            if os.path.isdir(file):
+                pre_existing.append(file)
+                continue
             with zipfile.ZipFile(file, 'r') as zip_ref:
                 zip_ref.extractall(toPath)
             os.remove(file)
