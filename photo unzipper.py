@@ -28,7 +28,7 @@ def main():
     try:
         for i in os.listdir(ewpath):
             print(i)
-            if i.find(".jpg") !=-1 or i.find(".JPG")!=-1:
+            if i.find(".jpg") !=-1 or i.find(".JPG")!=-1 or i.find(".JPEG")!=-1 or i.find(".jpeg")!=-1:
                 os.rename(ewpath+i, toPath+"\\"+i)
         shutil.rmtree(ewpath)
     except:
